@@ -1,3 +1,9 @@
+<?php 
+include "DB_connection.php";
+if ($conn) {
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +27,8 @@
 				<li><a href="#contactus_section">Contact</a></li>
 			</ul>
 			<div class="srch"><input type="text" class="search" placeholder="Search here..."><img src="img/icon/search.png" alt="search" ></div>
-			<a class="get-started" href="login.php">Get Started</a>
+			<a class="get-started" href="login.php">Login</a>
+			<a class="get-started" href="signup.php">Sign Up</a>
 			<img src="img/icon/menu.png" class="menu" alt="menu">
 		</nav>
 		<div class="head-container">
@@ -414,3 +421,7 @@
 </body>
 </html>
 
+<?php }else {
+	header("Location: login.php");
+	exit;
+} ?>

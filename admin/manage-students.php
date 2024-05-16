@@ -8,6 +8,10 @@ if (!$dbh) {
     die("Erreur de connexion : " . mysqli_connect_error());
 }
 
+if (isset($_SESSION['role']) && isset($_SESSION['admin_id']) && isset($_SESSION['admin_username'])) {
+    header('Location: ../login.php');
+    exit;
+} else {
 if(isset($_GET['delid'])) {
     $rid = intval($_GET['delid']);
     $sql = "DELETE FROM student WHERE id_user=:rid"; // Utilisation de id_user comme clé primaire
@@ -16,6 +20,7 @@ if(isset($_GET['delid'])) {
     $query->execute();
     echo "<script>alert('Data deleted');</script>";
     echo "<script>window.location.href = 'manage-students.php'</script>";     
+}
 }
 ?>
 <!DOCTYPE html>
@@ -76,7 +81,8 @@ if(isset($_GET['delid'])) {
                                                 <th class="font-weight-bold">Student Class</th>
                                                 <th class="font-weight-bold">Student Name</th>
                                                 <th class="font-weight-bold">Student Email</th>
-                                                <th class="font-weight-bold">Admission Date</th>
+                                                <th class="font-weight-bold">Date of Birth</th>
+                                                <th class="font-weight-bold">Action</th>
                                               
                                             </tr>
                                         </thead>
@@ -113,7 +119,7 @@ if(isset($_GET['delid'])) {
                                                 foreach($results as $row) {
                                             ?>   
                                                     <tr>
-                                                        <td><?php echo htmlentities($cnt);?></td>
+                                                       <<!-- <td><?php echo htmlentities($cnt);?></td>-->
                                                         <td><?php echo htmlentities($row->id_user);?></td>
                                                         <td><?php echo htmlentities($row->ClassName);?> <?php echo htmlentities($row->Section);?></td>
                                                         <td><?php echo htmlentities($row->{'Student Name'});?></td>

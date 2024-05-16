@@ -9,7 +9,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['admin_id']) && isset($_SESSION[
 } else {
     if (isset($_POST['submit'])) {
         $username = $_POST['username'];
-        $password = md5($_POST['password']);
+        $password = $_POST['password'];
         $email = $_POST['email'];
         $classe = $_POST['classe'];
         $gender = $_POST['gender'];
