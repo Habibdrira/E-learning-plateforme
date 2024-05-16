@@ -38,6 +38,37 @@
         </li>
 
         <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Class</span>
+                <i class="icon-layers menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="add-class.php">Add Class</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="manage-class.php">Manage Class</a></li>
+                </ul>
+              </div>
+            </li>
+
+   
+        <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                <span class="menu-title">techear</span>
+                <i class="icon-people menu-icon"></i>
+              </a>
+              <div class="collapse" id="auth">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="add-notice.php"> Add  </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="manage-notice.php"> Manage  </a></li>
+                </ul>
+              </div>
+            </li>
+
+
+
+
+
+        <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic1">
                 <span class="menu-title">Students</span>
                 <i class="icon-people menu-icon"></i>
@@ -50,6 +81,18 @@
             </div>
         </li>
 
+        <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#auth2" aria-expanded="false" aria-controls="auth">
+                <span class="menu-title">former</span>
+                <i class="icon-people menu-icon"></i>
+              </a>
+              <div class="collapse" id="auth2">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="#"> add</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="#"> manage </a></li>
+                </ul>
+              </div>
+            </li>
 
         <li class="nav-item">
             <a class="nav-link" href="between-dates-reports.php">
