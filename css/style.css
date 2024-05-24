@@ -115,34 +115,14 @@ button {
   text-decoration: none;
   text-align: center;
 }
-.slideshow-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.slideshow-container img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Assurez-vous que les images couvrent tout le conteneur */
-  opacity: 0; /* Masquez toutes les images au début */
-  transition: opacity 1s ease; /* Ajoutez une transition pour un effet de fondu */
-}
-
-
 .head-container {
   margin-top: 100px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
+  background-image: linear-gradient(to right, #1105528a, #63022981),
+    url(../img/kb.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }

@@ -1,127 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="shortcut icon" type="png" href="images/icon/iteam.jpg">
-    <title>Login SignUp</title>
-    <link rel="stylesheet" type="text/css" href="css/loginStyle.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login-ELIteam</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/loginStyle.css">
+	<link rel="icon" href="logo_iteam.png">
 </head>
-<body>
-    <div class="form-box">
-    <div class="button-box">    
-    <select name="role" id="role" class="toggle-btn1">
-      <option value="student">Student</option>
-        <option value="former">Former</option>
-        <option value="teacher">Teacher</option>
-        <option value="admin">Admin</option>
+<body class="body-login">
+    <div class="black-fill"><br /> <br />
+    	<div class="d-flex justify-content-center align-items-center flex-column">
+    	<form class="login" 
+    	      method="post"
+    	      action="req/log.php">
+
+    		<div class="text-center">
+    			<img src="logo_iteam.png"
+    			     width="300">
+    		</div>
+    		<h3>LOGIN</h3>
+
+    		<?php if (isset($_GET['error'])) { ?>
+
+    		<div class="alert alert-danger" role="alert">
+			  <?=$_GET['error']?>
+			</div>
+			<?php } ?>
+			
+		  <div class="mb-3">
+		    <label class="form-label">Username</label>
+		    <input type="text" 
+		           class="form-control"
+		           name="uname">
+		  </div>
+		  
+		  <div class="mb-3">
+		    <label class="form-label">Password</label>
+		    <input type="password" 
+		           class="form-control"
+		           name="pass">
+		  </div>
+
+		  <div class="mb-3">
+		    <label class="form-label">Login As</label>
+		    <select class="form-control"
+		            name="role">
+		    	<option value="1">Admin</option>
+		    	<option value="2">Teacher</option>
+		    	<option value="3">Student</option>
+		    	<option value="4">former</option>
+		    </select>
+		  </div>
+
+		  <button type="submit" class="btn btn-primary">Login</button>
+          <button type="button" onclick="window.location.href='index.php'" class="btn btn-primary">Home</button>
+          <button type="button" onclick="window.location.href='signup.php'" class="btn btn-primary">Sign Up</button>
+
+		</form>
         
-    </select>
-</div>
-        
-        <div class="social-icons">
-            <img src="img/icon/fb2.png" >
-            <img src="img/icon/insta2.png">
-            <img src="img/icon/tt2.png">
+        <br /><br />
+        <div class="text-center text-light">
+        	Copyright &copy; 2024 ELIteam . All rights reserved.
         </div>
 
-        <!-- Login Form -->
-        <form id="login" class="input-group" action="login.php" method="POST">
-            <div class="inp">
-                <img src="img/icon/user.png"><input type="text" name="username" id="username" class="input-field" placeholder="Nom d'utilisateur ou email" style="width: 88%; border:none;" required="required">
-            </div>
-            <div class="inp">
-                <img src="img/icon/password.png"><input type="password" name="password" id="password" class="input-field" placeholder="Mot de passe" style="width: 88%; border: none;" required="required">
-            </div>
-
-            <!-- Affichage du message d'erreur -->
-            <div class="erreur">
-                <?php include_once "script_login.php"; ?>
-                <?php echo $erreur; ?>
-            </div>
-
-            <input type="checkbox" class="check-box">Se souvenir du mot de passe
-            <button type="submit" name="submit" class="submit-btn" id="log">Connexion</button>
-        </form>
-
-        <div class="other" id="other">
-            <div class="instead">
-                <h3>ou</h3>
-            </div>
-            <button class="connect"  onclick="onGoogleSignIn()">
-                <img src="img/icon/google.png"><span>Se connecter avec Google</span>
-            </button>
-        </div>
+    	</div>
     </div>
-
-
-
-<script>  
-// CheckBox Function
-function goFurther(){
-  if (document.getElementById("chkAgree").checked == true) {
-    document.getElementById('btnSubmit').style = 'background: linear-gradient(to right, #FA4B37, #DF2771);';
-  }
-  else{
-    document.getElementById('btnSubmit').style = 'background: lightgray;';
-  }
-}
-
-function google() {
-  	window.location.assign("https://accounts.google.com/signin/v2/identifier?service=accountsettings&continue=https%3A%2F%2Fmyaccount.google.com%2F%3Futm_source%3Dsign_in_no_continue&csig=AF-SEnbZHbi77CbAiuHE%3A1585466693&flowName=GlifWebSignIn&flowEntry=AddSession", "_blank");
-}
-
-
-function onGoogleSignIn() {
-    var googleAuth = gapi.auth2.getAuthInstance();
-    googleAuth.signIn().then(function(googleUser) {
-        var profile = googleUser.getBasicProfile();
-        var userEmail = profile.getEmail();
-        var userName = profile.getName();
-        // Utilisez les informations de l'utilisateur comme vous le souhaitez
-        // Redirigez ensuite l'utilisateur vers la page d'accueil ou une autre page pertinente de votre application
-        window.location.href = 'index.html'; // Remplacez 'index.html' par l'URL de la page souhaitée
-    }).catch(function(error) {
-        console.error('Erreur de connexion Google:', error);
-    });
-}
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script
-    >
-
-
-function handleClick(e) {
-    // Supprimer la classe active-btn de tous les boutons
-    toggleButtons.forEach((button) => {
-        button.classList.remove('active-btn');
-    });
-
-    // Ajouter la classe active-btn uniquement au bouton cliqué
-    e.target.classList.add('active-btn');
-}
-
-// Sélectionnez tous les boutons de bascule et ajoutez un écouteur d'événements à chacun
-var toggleButtons = Array.from(document.querySelectorAll(".toggle-btn1"));
-toggleButtons.forEach(function(button) {
-    button.addEventListener('click', handleClick);
-});
-
-
-    </script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
 </body>
 </html>
-
-
