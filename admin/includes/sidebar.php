@@ -58,8 +58,8 @@
               </a>
               <div class="collapse" id="auth">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="add-notice.php"> Add  </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="manage-notice.php"> Manage  </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="add_teacher.php"> Add  </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="manage-teacher.php"> Manage  </a></li>
                 </ul>
               </div>
             </li>
@@ -88,8 +88,8 @@
               </a>
               <div class="collapse" id="auth2">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="#"> add</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="#"> manage </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="add-former.php"> add</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="manage-former.php"> manage </a></li>
                 </ul>
               </div>
             </li>
