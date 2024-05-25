@@ -44,7 +44,6 @@
   font-size: 28px;
 }
 
-<<<<<<< HEAD
 #contact {
   min-height: 100vh;
 }
@@ -56,54 +55,6 @@
   border-radius: 5px;
 }
 #contact form h3 {
-=======
-.button-box {
-  width: 160px;
-  margin: 40px auto;
-  position: relative;
-  box-shadow: 0 0 20px 9px rgba(0, 0, 0, 0.1);
-  border-radius: 30px;
-}
-
-.toggle-btn1 {
-  margin-left: 25px;
-  padding: 10px 20px;
-  cursor: pointer;
-  background: transparent;
-  position: relative;
-  border: 0;
-  text-align: center;
-  outline: none;
-  background: #630229;
-  color: #fff;
-  border-radius: 30px;
-  transition: 0.5s;
-}
-/*.toggle-btn1 {
-  padding: 10px 20px;
-  cursor: pointer;
-  background: transparent;
-  position: relative;
-  border: 0;
-  outline: none;
-  color: #000000;
-  border-radius: 30px;
-  transition: 0.5s;
-}*/
-
-.toggle-btn1:hover {
-  background: #630229;
-  color: white;
-}
-
-.active-btn {
-  background-color: #630229; /* Couleur de fond pour l'état actif */
-  color: #fff;
-}
-
-.social-icons {
-  margin: 30px auto;
->>>>>>> main
   text-align: center;
   font-family: "Lobster", cursive;
 }
