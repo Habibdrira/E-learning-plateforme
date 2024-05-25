@@ -3,31 +3,34 @@
 <head>
     <link rel="shortcut icon" type="png" href="images/icon/iteam.jpg">
     <title>Login SignUp</title>
-    <link rel="stylesheet" type="text/css" href="loginStyle.css">
+    <link rel="stylesheet" type="text/css" href="css/loginStyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="form-box">
-        <div class="button-box">    
-            <button type="button" name="role" id="student" class="toggle-btn1 " value="student">Student</button> 
-            <button type="button" name="role" id="former" class="toggle-btn1" value="former">Former</button>
-            <button type="button"  name="role" id="teacher" class="toggle-btn1" value="teacher">Teacher</button>
-            <button type="button" name="role" id="admin" class="toggle-btn1" value="admin">Admin</button>
-        </div>
+    <div class="button-box">    
+    <select name="role" id="role" class="toggle-btn1">
+      <option value="student">Student</option>
+        <option value="former">Former</option>
+        <option value="teacher">Teacher</option>
+        <option value="admin">Admin</option>
+        
+    </select>
+</div>
         
         <div class="social-icons">
-            <img src="images/icon/fb2.png" >
-            <img src="images/icon/insta2.png">
-            <img src="images/icon/tt2.png">
+            <img src="img/icon/fb2.png" >
+            <img src="img/icon/insta2.png">
+            <img src="img/icon/tt2.png">
         </div>
 
         <!-- Login Form -->
         <form id="login" class="input-group" action="login.php" method="POST">
             <div class="inp">
-                <img src="images/icon/user.png"><input type="text" name="username" id="username" class="input-field" placeholder="Nom d'utilisateur ou email" style="width: 88%; border:none;" required="required">
+                <img src="img/icon/user.png"><input type="text" name="username" id="username" class="input-field" placeholder="Nom d'utilisateur ou email" style="width: 88%; border:none;" required="required">
             </div>
             <div class="inp">
-                <img src="images/icon/password.png"><input type="password" name="password" id="password" class="input-field" placeholder="Mot de passe" style="width: 88%; border: none;" required="required">
+                <img src="img/icon/password.png"><input type="password" name="password" id="password" class="input-field" placeholder="Mot de passe" style="width: 88%; border: none;" required="required">
             </div>
 
             <!-- Affichage du message d'erreur -->
@@ -45,7 +48,7 @@
                 <h3>ou</h3>
             </div>
             <button class="connect"  onclick="onGoogleSignIn()">
-                <img src="images/icon/google.png"><span>Se connecter avec Google</span>
+                <img src="img/icon/google.png"><span>Se connecter avec Google</span>
             </button>
         </div>
     </div>
