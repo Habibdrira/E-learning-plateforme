@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 27 avr. 2024 à 14:28
+-- Généré le : sam. 25 mai 2024 à 13:23
 -- Version du serveur : 10.4.32-MariaDB
--- Version de PHP : 8.0.30
+-- Version de PHP : 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,19 +30,36 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `id_user` int(11) NOT NULL,
   `username` varchar(30) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `password` varchar(8) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `admin`
 --
 
-INSERT INTO `admin` (`id_user`, `username`, `email`, `password`) VALUES
-(1, 'doniazahaf ', 'donia.zahaf@gmail.com ', 'donia123'),
-(2, 'habibdrira ', ' habib.drira@gmail.com', 'habib123'),
-(3, 'iteamsc ', ' iteamsc@gmail.com', 'iteam123'),
-(4, 'adminiteam ', ' adminiteam@gmail.com', 'admin123');
+INSERT INTO `admin` (`id_user`, `username`, `password`, `email`) VALUES
+(1, 'admin', 'admin123', 'admin@example.com'),
+(2, 'habib', 'habib', 'habib@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `class`
+--
+
+CREATE TABLE `class` (
+  `id` int(20) NOT NULL,
+  `classname` varchar(20) DEFAULT NULL,
+  `section` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `class`
+--
+
+INSERT INTO `class` (`id`, `classname`, `section`) VALUES
+(2, '1er ING 1-2', 'info');
 
 -- --------------------------------------------------------
 
@@ -51,21 +68,11 @@ INSERT INTO `admin` (`id_user`, `username`, `email`, `password`) VALUES
 --
 
 CREATE TABLE `cours` (
-  `id_et` int(5) NOT NULL,
-  `nom` varchar(25) NOT NULL,
+  `id_et` int(11) NOT NULL,
+  `nom` varchar(50) NOT NULL,
   `annee` int(4) NOT NULL,
-  `classe` varchar(25) NOT NULL
+  `classe` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `cours`
---
-
-INSERT INTO `cours` (`id_et`, `nom`, `annee`, `classe`) VALUES
-(1, 'java', 2022, '1ing'),
-(2, 'python', 2024, '2ing'),
-(3, 'web', 2023, 'licence'),
-(4, 'analyse', 2024, '1ing');
 
 -- --------------------------------------------------------
 
@@ -76,22 +83,12 @@ INSERT INTO `cours` (`id_et`, `nom`, `annee`, `classe`) VALUES
 CREATE TABLE `former` (
   `id_user` int(11) NOT NULL,
   `username` varchar(30) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `password` varchar(8) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `specialite` varchar(50) DEFAULT NULL,
-  `experience` varchar(50) DEFAULT NULL,
+  `experience` varchar(100) DEFAULT NULL,
   `cv` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `former`
---
-
-INSERT INTO `former` (`id_user`, `username`, `email`, `password`, `specialite`, `experience`, `cv`) VALUES
-(1, 'mohamed  ', 'mohamed@gmail.com', 'mohamed', NULL, NULL, NULL),
-(2, 'wafa  ', 'wafa@gmail.com', 'wafa1234', NULL, NULL, NULL),
-(3, 'malek  ', 'malek@gmail.com', 'malek55', NULL, NULL, NULL),
-(4, 'fares', ' fares@gmail.com', ' fares22', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -101,28 +98,24 @@ INSERT INTO `former` (`id_user`, `username`, `email`, `password`, `specialite`, 
 
 CREATE TABLE `student` (
   `id_user` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `classe` varchar(50) DEFAULT NULL,
-  `niveau` int(11) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL
+  `Gender` varchar(25) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `Date of Birth` date NOT NULL,
+  `Student Name` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `student`
 --
 
-INSERT INTO `student` (`id_user`, `username`, `email`, `password`, `classe`, `niveau`, `image`) VALUES
-(1, 'donia  ', 'donia@gmail.com', '123456', 'Ing_GL', 1, NULL),
-(2, 'habib ', 'habib@gmail.com ', 'driraaaa', 'Ing_GL', 1, NULL),
-(3, 'oussema  ', 'oussema@gmail.com', 'oussema1', 'Ing_GL', 3, NULL),
-(4, 'mahdi  ', 'mahdi@gmail.com', 'mahdiii', 'licence_securite', 3, NULL),
-(5, 'sirine  ', 'sirine@gmail.com', 'sirine20', 'prepa-mpi', 1, NULL),
-(6, 'asma ', ' asma@gmail.com', 'asma88', 'Ing_Big_Data', 2, NULL),
-(12, 'haifa', 'haifa@gmail.com', 'haifa123', 'Ing-cloud', 2, 'IMG-20220529-WA0006.jpg'),
-(13, 'mariem', 'mariem@gmail.com', 'mariem1', 'licence_C_SCIENCES', 3, '426886933_701990318803810_1186612392474349888_n.jpg'),
-(14, 'haifa', 'haifa@gmail.com', 'haifa123', 'Ing-cloud', 2, 'received_471694969991558.jpeg');
+INSERT INTO `student` (`id_user`, `username`, `password`, `email`, `classe`, `Gender`, `image`, `Date of Birth`, `Student Name`) VALUES
+(4, 'donia zahaf', '3e89fe3751d90725d2a5458411cf472a', 'donia@gmail.com', '2', 'Female', '568bf362450b433a49c84e82868a1138.jpeg', '2001-01-26', 'donia'),
+(5, 'faresdrira', 'drira', 'drirafares28@gmail.com', '1', 'Male', '80a24996ffb7630cf9b9a16f1d8d6853.png', '2003-01-18', 'fares'),
+(6, 'habibbb', 'driria', 'habibdrira6@gmail.com', '2', 'Male', '1573aedecd9f356eff631c909c4be3a7.jpeg', '2000-10-30', 'habib');
 
 -- --------------------------------------------------------
 
@@ -132,9 +125,9 @@ INSERT INTO `student` (`id_user`, `username`, `email`, `password`, `classe`, `ni
 
 CREATE TABLE `teacher` (
   `id_user` int(11) NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `password` varchar(8) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `matiere` varchar(100) DEFAULT NULL,
   `classe` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -143,49 +136,8 @@ CREATE TABLE `teacher` (
 -- Déchargement des données de la table `teacher`
 --
 
-INSERT INTO `teacher` (`id_user`, `username`, `email`, `password`, `matiere`, `classe`) VALUES
-(1, 'asmacheker ', 'asmachaker@gmail.com', 'asma123', NULL, NULL),
-(2, 'aaaaaaaa ', 'aaaaaaaa@gmail.com', '12345678', NULL, NULL),
-(3, 'bbbbbbb ', 'bbbbbbb@gmail.com', '87654321', NULL, NULL),
-(4, 'cccccc ', 'cccccc@gmail.com', '123456', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `user`
---
-
-CREATE TABLE `user` (
-  `id_user` int(6) NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `password` varchar(8) NOT NULL,
-  `role` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `user`
---
-
-INSERT INTO `user` (`id_user`, `username`, `email`, `password`, `role`) VALUES
-(1, 'doniazahaf ', 'donia.zahaf@gmail.com ', 'donia123', 'admin'),
-(2, 'habibdrira ', ' habib.drira@gmail.com', 'habib123', 'admin'),
-(3, 'iteamsc ', ' iteamsc@gmail.com', 'iteam123', 'admin'),
-(4, 'adminiteam ', ' adminiteam@gmail.com', 'admin123', 'admin'),
-(5, 'donia  ', 'donia@gmail.com', '123456', 'student'),
-(6, 'habib ', 'habib@gmail.com ', 'driraaaa', 'student'),
-(7, 'oussema  ', 'oussema@gmail.com', 'oussema1', 'student'),
-(8, 'mahdi  ', 'mahdi@gmail.com', 'mahdiii', 'student'),
-(9, 'sirine  ', 'sirine@gmail.com', 'sirine20', 'student'),
-(10, 'asma ', ' asma@gmail.com', 'asma88', 'student'),
-(11, 'asmacheker ', 'asmachaker@gmail.com', 'asma123', 'enseignant'),
-(12, 'aaaaaaaa ', 'aaaaaaaa@gmail.com', '12345678', 'enseignant'),
-(13, 'bbbbbbb ', 'bbbbbbb@gmail.com', '87654321', 'enseignant'),
-(14, 'cccccc ', 'cccccc@gmail.com', '123456', 'enseignant'),
-(15, 'mohamed  ', 'mohamed@gmail.com', 'mohamed', 'formateur'),
-(16, 'wafa  ', 'wafa@gmail.com', 'wafa1234', 'formateur'),
-(17, 'malek  ', 'malek@gmail.com', 'malek55', 'formateur'),
-(18, 'fares', ' fares@gmail.com', ' fares22', 'formateur');
+INSERT INTO `teacher` (`id_user`, `username`, `password`, `email`, `matiere`, `classe`) VALUES
+(1, 'safa', 'safa', 'safa@gmail.com', 'chimie', '1');
 
 --
 -- Index pour les tables déchargées
@@ -196,6 +148,12 @@ INSERT INTO `user` (`id_user`, `username`, `email`, `password`, `role`) VALUES
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_user`);
+
+--
+-- Index pour la table `class`
+--
+ALTER TABLE `class`
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Index pour la table `cours`
@@ -222,12 +180,6 @@ ALTER TABLE `teacher`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Index pour la table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
-
---
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -235,65 +187,37 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `class`
+--
+ALTER TABLE `class`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `cours`
 --
 ALTER TABLE `cours`
-  MODIFY `id_et` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_et` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `former`
 --
 ALTER TABLE `former`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT pour la table `user`
---
-ALTER TABLE `user`
-  MODIFY `id_user` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `admin`
---
-ALTER TABLE `admin`
-  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
-
---
--- Contraintes pour la table `former`
---
-ALTER TABLE `former`
-  ADD CONSTRAINT `former_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
-
---
--- Contraintes pour la table `student`
---
-ALTER TABLE `student`
-  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
-
---
--- Contraintes pour la table `teacher`
---
-ALTER TABLE `teacher`
-  ADD CONSTRAINT `teacher_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

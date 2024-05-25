@@ -3,7 +3,6 @@ include "DB_connection.php";
 if ($conn) {
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,14 +26,24 @@ if ($conn) {
 				<li><a href="#contactus_section">Contact</a></li>
 			</ul>
 			<div class="srch"><input type="text" class="search" placeholder="Search here..."><img src="img/icon/search.png" alt="search" ></div>
+			<a class="get-started" href="login.php">Get Started</a>
 			<a class="get-started" href="login.php">Login</a>
 			<a class="get-started" href="signup.php">Sign Up</a>
 			<img src="img/icon/menu.png" class="menu" alt="menu">
 		</nav>
+		
 		<div class="head-container">
 			<div class="quote">
 				<br><br><br>
 				<br>
+				<!--<div class="slideshow-container">
+					<img src="img/banner-1.jpg" alt="Image 1">
+					<img src="img/im3.jpg" alt="Image 2">
+					<img src="img/im4.jpg" alt="Image 3">
+					<img src="img/im1.jpg" alt="Image 4">
+					<img src="img/im2.jpg" alt="Image 5">
+					
+				</div>-->
 				<center>
 					<br>
 				<p style="color: rgb(255, 255, 255);">The beautiful thing about learning is that nobody can take it away from you.</p> <br>	
@@ -45,11 +54,6 @@ if ($conn) {
 				STUDY AT ITEAM UNIVERSITY</h4> <br>
 			<h5 style="color: red; text-decoration: underline;">Read more</h5>
 		</div>
-		</div>
-		<div class="bttt">
-			<button  class="btn-ros">admission</button>
-			<button class="btn-ros">informations</button>
-			<button class="btn-ros">documents</button>
 		</div>
 		</div>
 				
@@ -208,7 +212,7 @@ if ($conn) {
 <!-- SERVICES -->
 	<div class="service-swipe" id="services_section">
 		<div class="diffSection" id="services_section">
-		<center><p style="font-size: 50px; padding: 100px; padding-bottom: 40px; color: #fff;">Services</p></center>
+		<center><p style="font-size: 50px; padding: 100px; padding-bottom: 40px; color:#2e2e2e;">Services</p></center>
 		</div>
 		<a href="#"><div class="s-card"><img src="img/icon/computer-courses.png"><p>Free Online Computer Courses</p></div></a>
 		<a href="#"><div class="s-card"><img src="img/icon/brainbooster.png"><p>Building Concepts for Competitive Exams</p></div></a>
@@ -219,6 +223,7 @@ if ($conn) {
 		<a href="#"><div class="s-card"><img src="img/icon/q1.png"><p>training courses</p></div></a>
 		<a href="#"><div class="s-card"><img src="img/icon/help.png"><p>24x7 Online Support</p></div></a>
 	</div>
+	<!--
 	<div class="diffSection1" id="calendar_section">
 		<center>
 			<p style="font-size: 50px; padding-top: 30px; padding-bottom: 20px;color: #2e2e2e;">Next training</p>
@@ -263,6 +268,35 @@ if ($conn) {
 			</table>
 		</div>
 	</div>
+-->
+<br>
+<section class="component-margin non-student-cta--non-student-cta-wrapper--0lX2-">
+    <div class="container">
+        <div class="row">
+			<center><h3 style="font-size: 40px; padding-bottom:130px; color:#2e2e2e;"  data-purpose="non-student-cta-title" >Devenir formateur</h3></center> 
+            <div class="col-md-6 d-flex align-items-center">
+                <img class="img-fluid" src="https://s.udemycdn.com/home/non-student-cta/instructor-1x-v3.jpg" srcset="https://s.udemycdn.com/home/non-student-cta/instructor-1x-v3.jpg 1x, https://s.udemycdn.com/home/non-student-cta/instructor-2x-v3.jpg 2x" alt="Devenir formateur">
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <div class="non-student-cta--non-student-cta--sG5QP" data-purpose="non-student-cta-body">
+                    
+                    <div class="ud-text-md non-student-cta--non-student-cta__content--CBhbQ" style="font-size: 18px;">Nos formateurs du monde entier donnent des cours à des millions de participants sur Udemy. <br>Nous vous offrons les outils et les compétences nécessaires pour enseigner ce que vous aimez.</div>
+                    <div class="non-student-cta--ctas-container--BkUjg">
+                        <div class="non-student-cta--non-student-cta__link--yuha9">
+							<br><br>
+                            <a href="former.php" class="btn btn-primary btn-lg"><span>Commencez à enseigner dès aujourd'hui</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+	
 	<div class="diffSection" >
 		<center><p style="font-size: 40px; padding-top: 100px; padding-bottom: 60px; color: #2e2e2e;">Our upcoming training courses</p></center>
 		<div class="totalcard">
@@ -298,6 +332,7 @@ if ($conn) {
 			</div>
 		</div>
 	</div>
+	<!--
 	<div class="diffSection1" id="add_training_section">
 		<center>
 			<p style="font-size: 50px; padding-top: 30px; padding-bottom: 20px;color: #000000;;">Add a Training</p>
@@ -317,11 +352,11 @@ if ($conn) {
 			</form>
 		</div>
 	</div>
-
+-->
 <!-- CONTACT US -->
 
 	<div class="diffSection" id="contactus_section">
-		<center><p style="font-size: 50px; padding-bottom:130px; #2e2e2e">Contact Us</p></center>
+		<center><p style="font-size: 50px; padding-bottom:130px; ">Contact Us</p></center>
 		<div class="csec"></div>
 		<div class="back-contact">
 			<div class="cc">
@@ -416,10 +451,27 @@ if ($conn) {
 
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 	<script src="https://apis.google.com/js/api.js" async defer></script>
-	
+	<script>// Liste des chemins d'accès des images
+		var images = ["url(img/banner-1.jpg)","url(img/im.jpg)", "url(../img/im2.jpg)", "url(../img/im3.jpg)","url(../img/im3.jpg)"];		var index = 0;
+		
+		// Fonction pour changer l'image du diaporama
+		function changeSlide() {
+		  if (index === images.length) {
+			index = 0; // Réinitialiser l'index si toutes les images ont été affichées
+		  }
+		  var slideshowContainer = document.querySelector('.slideshow-container');
+		  slideshowContainer.style.backgroundImage = images[index];
+		  index++;
+		}
+		
+		// Changer l'image toutes les 3 secondes
+		setInterval(changeSlide, 3000);
+		</script>
 
 </body>
 </html>
+
+
 
 <?php }else {
 	header("Location: login.php");
