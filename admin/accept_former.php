@@ -10,12 +10,12 @@ if ($conn->connect_error) {
 }
 
 // Vérifier si l'identifiant du formateur est présent dans l'URL
-if (isset($_GET['id_user'])) {
+if (isset($_GET['id'])) {
     // Récupérer l'identifiant du formateur depuis l'URL
-    $formateur_id = $_GET['id_user'];
+    $formateur_id = $_GET['id'];
 
     // Mettre à jour l'attribut is_Active du formateur dans la base de données
-    $sql = "UPDATE former SET is_Active = true WHERE id_user = ?";
+    $sql = "UPDATE former SET is_Active = true WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $formateur_id);
     $stmt->execute();
