@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Login-ELIteam</title>
@@ -65,6 +66,58 @@
         </div>
 
     	</div>
+=======
+    <link rel="shortcut icon" type="png" href="images/icon/iteam.jpg">
+    <title>Login SignUp</title>
+    <link rel="stylesheet" type="text/css" href="css/loginStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="form-box">
+    <div class="button-box">    
+    <select name="role" id="role" class="toggle-btn1">
+      <option value="student">Student</option>
+        <option value="former">Former</option>
+        <option value="teacher">Teacher</option>
+        <option value="admin">Admin</option>
+        
+    </select>
+</div>
+        
+        <div class="social-icons">
+            <img src="img/icon/fb2.png" >
+            <img src="img/icon/insta2.png">
+            <img src="img/icon/tt2.png">
+        </div>
+
+        <!-- Login Form -->
+        <form id="login" class="input-group" action="login.php" method="POST">
+            <div class="inp">
+                <img src="img/icon/user.png"><input type="text" name="username" id="username" class="input-field" placeholder="Nom d'utilisateur ou email" style="width: 88%; border:none;" required="required">
+            </div>
+            <div class="inp">
+                <img src="img/icon/password.png"><input type="password" name="password" id="password" class="input-field" placeholder="Mot de passe" style="width: 88%; border: none;" required="required">
+            </div>
+
+            <!-- Affichage du message d'erreur -->
+            <div class="erreur">
+                <?php include_once "script_login.php"; ?>
+                <?php echo $erreur; ?>
+            </div>
+
+            <input type="checkbox" class="check-box">Se souvenir du mot de passe
+            <button type="submit" name="submit" class="submit-btn" id="log">Connexion</button>
+        </form>
+
+        <div class="other" id="other">
+            <div class="instead">
+                <h3>ou</h3>
+            </div>
+            <button class="connect"  onclick="onGoogleSignIn()">
+                <img src="img/icon/google.png"><span>Se connecter avec Google</span>
+            </button>
+        </div>
+>>>>>>> main
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
 </body>
