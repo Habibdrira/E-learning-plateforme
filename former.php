@@ -142,6 +142,7 @@ input {
 <body>
 
 <header id="header">
+<<<<<<< HEAD
     <nav>
         <img src="img/icon/iteam.jpg" alt="logo" class="logo">
         <ul>
@@ -155,6 +156,22 @@ input {
         <div class="srch"><input type="text" class="search" placeholder="Search here..."><img src="images/icon/search.png" alt="search"></div>
         <img src="img/icon/menu.png" class="menu" alt="menu">
     </nav>
+=======
+<nav style="box-shadow: 1px 1px 10px rgba(0,0,0,0.5); height: 100px;">
+			<img src="img/icon/iteam.jpg" alt="logo" class="logo" style="width: 120px;">
+			<ul style="padding: top 30px;">
+				<li><a class="active" href="">Home</a></li>
+				<li><a href="#about">about us</a></li>
+				<li><a href="#cours">courses</a></li>
+				<li><a href="#services_section">Services</a></li>
+				<li><a href="#calendar_section">formation</a></li>
+				<li><a href="#contactus_section">Contact</a></li>
+			</ul>
+			<div class="srch"><input type="text" class="search" placeholder="Search here..."><img src="img/icon/search.png" alt="search" ></div>
+			
+			<img src="img/icon/menu.png" class="menu" alt="menu">
+		</nav>
+>>>>>>> main
 
     <div class="head-container">
         <div class="quote">
