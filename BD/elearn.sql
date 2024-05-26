@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 25 mai 2024 à 13:23
+-- Généré le : dim. 26 mai 2024 à 00:37
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -87,7 +87,8 @@ CREATE TABLE `former` (
   `email` varchar(50) NOT NULL,
   `specialite` varchar(50) DEFAULT NULL,
   `experience` varchar(100) DEFAULT NULL,
-  `cv` varchar(100) DEFAULT NULL
+  `cv` varchar(100) DEFAULT NULL,
+  `is_Active` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -113,7 +114,6 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`id_user`, `username`, `password`, `email`, `classe`, `Gender`, `image`, `Date of Birth`, `Student Name`) VALUES
-(4, 'donia zahaf', '3e89fe3751d90725d2a5458411cf472a', 'donia@gmail.com', '2', 'Female', '568bf362450b433a49c84e82868a1138.jpeg', '2001-01-26', 'donia'),
 (5, 'faresdrira', 'drira', 'drirafares28@gmail.com', '1', 'Male', '80a24996ffb7630cf9b9a16f1d8d6853.png', '2003-01-18', 'fares'),
 (6, 'habibbb', 'driria', 'habibdrira6@gmail.com', '2', 'Male', '1573aedecd9f356eff631c909c4be3a7.jpeg', '2000-10-30', 'habib');
 
