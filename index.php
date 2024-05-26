@@ -110,6 +110,7 @@ if ($conn) {
 	<center>
 		<p style="font-size: 45px; padding-top: 30px; padding-bottom: 20px;color: #2e2e2e;">About Us</p>
 	</center>
+
 	<div class="about" id="about">
 		
 		<div class=abim>
@@ -189,6 +190,7 @@ if ($conn) {
 
 
 <br>
+
 <div class="about" id="about">
 		
 	<div class=abim>
@@ -201,7 +203,7 @@ if ($conn) {
 			<br>We offer you the tools and skills necessary to teach what you love.</div></h4> </center>
 			
 			<div style="border: 1px solid #000; background: linear-gradient(to right, #1e0649, #68082e);padding: 15px; display: inline-block; border-radius: 7px;">
-				<a href="former.php" style="font-size: 22px; color: white;">
+				<a href="former/former.php" style="font-size: 22px; color: white;">
 					<span>Start teaching today.</span>
 				</a>
 			</div>
@@ -307,6 +309,8 @@ if ($conn) {
 			</form>
 		</div>
 	</div>
+
+
 
 <!-- Sliding Information -->
 	<marquee style="background: linear-gradient(to right, #630229,#110552 ); margin-top: 50px;" direction="left" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="20">
