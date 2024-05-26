@@ -16,9 +16,9 @@ if ($conn) {
 <body>
 <!-- Navigation Bar -->
 <?php include "nav.php"; ?>
-<header >
+
 <?php include "ok.php"; ?>	
-	</header>		
+			
 <!--
 	<section class="feature" id="prof">
 		

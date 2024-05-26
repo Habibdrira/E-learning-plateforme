@@ -5,7 +5,7 @@
         <li><a href="#about" style="text-decoration: none; padding: 10px;">about us</a></li>
         <li><a href="#cours" style="text-decoration: none; padding: 10px;">courses</a></li>
         <li><a href="#services_section" style="text-decoration: none; padding: 10px;">Services</a></li>
-        <li><a href="#calendar_section" style="text-decoration: none; padding: 10px;">formation</a></li>
+        <li><a href="#calendar_section" style="text-decoration: none; padding: 10px;">Training courses</a></li>
         <li><a href="#contactus_section" style="text-decoration: none; padding: 10px;">Contact</a></li>
     </ul>
     <div style="list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; margin-right: 30px;">
