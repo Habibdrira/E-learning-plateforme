@@ -22,6 +22,7 @@ if (isset($_SESSION['role']) && isset($_SESSION['admin_id']) && isset($_SESSION[
         echo "<script>window.location.href = 'manage-teachers.php'</script>";
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

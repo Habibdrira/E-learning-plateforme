@@ -90,21 +90,11 @@
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="add-former.php"> add</a></li>
                   <li class="nav-item"> <a class="nav-link" href="manage-former.php"> manage </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="accept-former.php"> accept former </a></li>
                 </ul>
               </div>
             </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="between-dates-reports.php">
-                <span class="menu-title">Reports</span>
-                <i class="icon-notebook menu-icon"></i>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="search.php">
-                <span class="menu-title">Search</span>
-                <i class="icon-magnifier menu-icon"></i>
-            </a>
-        </li>
+
     </ul>
 </nav>
