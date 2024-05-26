@@ -1,15 +1,13 @@
 <?php
 session_start();
-require "server.php"; 
+include('../DB_connection.php');
 
 // Connexion à la base de données
-$conn = new mysqli($host, $admin, $pass, $dbname);
+
 
 // Vérifier la connexion à la base de données
-if ($conn->connect_error) {
-    die("Erreur de connexion à la base de données: " . $conn->connect_error);
-}
-
+if ($conn) {
+   
 // Initialiser une variable pour stocker les messages
 $message = "";
 
@@ -52,7 +50,7 @@ echo 'before iff';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devinez un formateur</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     
 
     <style>
@@ -409,4 +407,7 @@ document.querySelector('.close').addEventListener("click", function() {
 
 </body>
 </html>
-
+<?php }else {
+	header("Location: login.php");
+	exit;
+} ?>

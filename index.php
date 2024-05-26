@@ -11,52 +11,15 @@ if ($conn) {
 	<title>ELIteam</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/style.css">	
+	<link rel="stylesheet" type="text/css" href="css/head.css">
 </head>
 <body>
 <!-- Navigation Bar -->
-	<header id="header">
-		<nav>
-			<img src="img/icon/iteam.jpg" alt="logo" class="logo">
-			<ul>
-				<li><a class="active" href="">Home</a></li>
-				<li><a href="#about">about us</a></li>
-				<li><a href="#cours">courses</a></li>
-				<li><a href="#services_section">Services</a></li>
-				<li><a href="#calendar_section">formation</a></li>
-				<li><a href="#contactus_section">Contact</a></li>
-			</ul>
-			<div class="srch"><input type="text" class="search" placeholder="Search here..."><img src="img/icon/search.png" alt="search" ></div>
-			<a class="get-started" href="login.php">Get Started</a>
-			<a class="get-started" href="login.php">Login</a>
-			<a class="get-started" href="signup.php">Sign Up</a>
-			<img src="img/icon/menu.png" class="menu" alt="menu">
-		</nav>
-		
-		<div class="head-container">
-			<div class="quote">
-				<br><br><br>
-				<br>
-				<!--<div class="slideshow-container">
-					<img src="img/banner-1.jpg" alt="Image 1">
-					<img src="img/im3.jpg" alt="Image 2">
-					<img src="img/im4.jpg" alt="Image 3">
-					<img src="img/im1.jpg" alt="Image 4">
-					<img src="img/im2.jpg" alt="Image 5">
-					
-				</div>-->
-				<center>
-					<br>
-				<p style="color: rgb(255, 255, 255);">The beautiful thing about learning is that nobody can take it away from you.</p> <br>	
-			</center>
-		
-			<div class="hefot">
-			<h4 style="color: #d8d5d5;">Plan your Success!
-				STUDY AT ITEAM UNIVERSITY</h4> <br>
-			<h5 style="color: red; text-decoration: underline;">Read more</h5>
-		</div>
-		</div>
-		</div>
-				
+<?php include "nav.php"; ?>
+<header >
+<?php include "ok.php"; ?>	
+	</header>		
+<!--
 	<section class="feature" id="prof">
 		
 		<div class="boxes" id="prof">
@@ -80,7 +43,7 @@ if ($conn) {
 		<h2>+30 total Projects</h2>
 		</div>
 	</div>
-	   </section> 
+	   </section> -->
 
 	   <!--invest in your goals-->
 	   <div class="service-swipe">
@@ -111,7 +74,7 @@ if ($conn) {
                         <div class="card">
 							<center>
                             <img src="img/icon2.png" alt="" width="60px" class="mb-4">
-                            <h5 class="card-title">Save money</h5>
+							 <h5  href="#cours" class="card-title">Save money</h5>
                             <p style="padding-bottom: 30px;">Spend less money on your learning if you plan to take multiple courses this year</p>
 						</center>
                         </div>
@@ -147,6 +110,7 @@ if ($conn) {
 	<center>
 		<p style="font-size: 45px; padding-top: 30px; padding-bottom: 20px;color: #2e2e2e;">About Us</p>
 	</center>
+
 	<div class="about" id="about">
 		
 		<div class=abim>
@@ -193,16 +157,16 @@ if ($conn) {
 	<br><br>
 	<div class="course">
 		<center><div class="cbox">
-		<div class="det"><a href="#"><img src="img/courses/book.png">JEE Preparation</a></div>
-		<div class="det"><a href="#"><img src="img/courses/d1.png">HTML CSS</a></div>
-		<div class="det"><a href="#"><img src="img/courses/paper.png">Proba</a></div>
-		<div class="det"><a href="#"><img src="img/courses/d1.png">Daily Quiz</a></div>
+		<div class="det"><a href="subjects/jee.html"><img src="img/courses/book.png">JEE Preparation</a></div>
+		<div class="det"><a href="subjects/gate.html"><img src="img/courses/d1.png">GATE Preparation</a></div>
+		<div class="det"><a href="subjects/jee.html#sample_papers"><img src="img/courses/paper.png">Sample Papers</a></div>
+		<div class="det"><a href="subjects/quiz.html"><img src="img/courses/d1.png">Daily Quiz</a></div>
 		</div></center>
 		<div class="cbox">
-		<div class="det"><a href="#"><img src="img/courses/computer.png">Computer Courses</a></div>
-		<div class="det"><a href="#"><img src="img/courses/data.png">Data Structures</a></div>
-		<div class="det"><a href="#"><img src="img/courses/algo.png">Algorithm</a></div>
-		<div class="det det-last"><a href="#"><img src="img/courses/projects.png">Projects</a></div>
+		<div class="det"><a href="subjects/computer_courses.html"><img src="img/courses/computer.png">Computer Courses</a></div>
+		<div class="det"><a href="subjects/computer_courses.html#data"><img src="img/courses/data.png">Data Structures</a></div>
+		<div class="det"><a href="subjects/computer_courses.html#algo"><img src="img/courses/algo.png">Algorithm</a></div>
+		<div class="det det-last"><a href="subjects/computer_courses.html#projects"><img src="img/courses/projects.png">Projects</a></div>
 		</div>
 	</div>
 	<br>
@@ -223,76 +187,29 @@ if ($conn) {
 		<a href="#"><div class="s-card"><img src="img/icon/q1.png"><p>training courses</p></div></a>
 		<a href="#"><div class="s-card"><img src="img/icon/help.png"><p>24x7 Online Support</p></div></a>
 	</div>
-	<!--
-	<div class="diffSection1" id="calendar_section">
-		<center>
-			<p style="font-size: 50px; padding-top: 30px; padding-bottom: 20px;color: #2e2e2e;">Next training</p>
-		</center>
-		<div class="calendar-container">
-			<table class="calendar">
-				<thead>
-					<tr>
-						<th>saturday</th>
-						<th>monday</th>
-						<th>tuesday</th>
-						<th>wendesday</th>
-						<th>thursday</th>
-						<th>friday</th>
-						<th>Sunday</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						
-						<td><a href="#" title="2023-01-01">Data Science</a></td>
-						<td></td>
-						<td></td>
-						<td><a href="#" title="2023-01-04">JEE</a></td>
-						<td></td>
-						<td><a href="#" title="2023-01-06">Html Css</a></td>
-						<td></td>
-						<td class="time-cell">09:00 - 10:30</td>
-					</tr>
-					<tr>
-						<td><a href="jour7.html" title="2023-01-07">Algo</a></td>
-						
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td class="time-cell">11:00 - 12:30</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
--->
-<br>
-<section class="component-margin non-student-cta--non-student-cta-wrapper--0lX2-">
-    <div class="container">
-        <div class="row">
-			<center><h3 style="font-size: 40px; padding-bottom:130px; color:#2e2e2e;"  data-purpose="non-student-cta-title" >Devenir formateur</h3></center> 
-            <div class="col-md-6 d-flex align-items-center">
-                <img class="img-fluid" src="https://s.udemycdn.com/home/non-student-cta/instructor-1x-v3.jpg" srcset="https://s.udemycdn.com/home/non-student-cta/instructor-1x-v3.jpg 1x, https://s.udemycdn.com/home/non-student-cta/instructor-2x-v3.jpg 2x" alt="Devenir formateur">
-            </div>
-            <div class="col-md-6 d-flex align-items-center">
-                <div class="non-student-cta--non-student-cta--sG5QP" data-purpose="non-student-cta-body">
-                    
-                    <div class="ud-text-md non-student-cta--non-student-cta__content--CBhbQ" style="font-size: 18px;">Nos formateurs du monde entier donnent des cours à des millions de participants sur Udemy. <br>Nous vous offrons les outils et les compétences nécessaires pour enseigner ce que vous aimez.</div>
-                    <div class="non-student-cta--ctas-container--BkUjg">
-                        <div class="non-student-cta--non-student-cta__link--yuha9">
-							<br><br>
-                            <a href="former.php" class="btn btn-primary btn-lg"><span>Commencez à enseigner dès aujourd'hui</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
+
+<br>
+
+<div class="about" id="about">
+		
+	<div class=abim>
+		<img style="width: 500px;" src="https://s.udemycdn.com/home/non-student-cta/instructor-1x-v3.jpg" srcset="https://s.udemycdn.com/home/non-student-cta/instructor-1x-v3.jpg 1x, https://s.udemycdn.com/home/non-student-cta/instructor-2x-v3.jpg 2x" alt="Devenir formateur">
+	</div>
+	<div class="cont">
+	<div class="quote">
+		<br><br><br> <br><br><br><br>
+		<center> <h4 style="font-size: 17px;">  <br>Our instructors from around the world provide <br> courses to millions of participants on ELIteam. 
+			<br>We offer you the tools and skills necessary to teach what you love.</div></h4> </center>
+			
+			<div style="border: 1px solid #000; background: linear-gradient(to right, #1e0649, #68082e);padding: 15px; display: inline-block; border-radius: 7px;">
+				<a href="former/former.php" style="font-size: 22px; color: white;">
+					<span>Start teaching today.</span>
+				</a>
+			</div>
+			
+	</div>
+</div>
 
 
 
@@ -332,27 +249,7 @@ if ($conn) {
 			</div>
 		</div>
 	</div>
-	<!--
-	<div class="diffSection1" id="add_training_section">
-		<center>
-			<p style="font-size: 50px; padding-top: 30px; padding-bottom: 20px;color: #000000;;">Add a Training</p>
-		</center>
-		<div class="form-container">
-			<form action="#" method="post">
-				<label style="color: #000000;font-size: 25px;" for="training_date">Training Date:</label>
-				<input type="date" id="training_date" name="training_date" required>
-	
-				<label style="color: #000000;font-size: 25px;" for="training_topic">Training Topic:</label>
-				<input type="text" id="training_topic" name="training_topic" required>
-	
-				<label style="color: #000000;font-size: 25px;" for="training_time">Training Time:</label>
-				<input type="time" id="training_time" name="training_time" required>
-	
-				<button type="submit">Add Training</button>
-			</form>
-		</div>
-	</div>
--->
+
 <!-- CONTACT US -->
 
 	<div class="diffSection" id="contactus_section">
@@ -413,6 +310,8 @@ if ($conn) {
 		</div>
 	</div>
 
+
+
 <!-- Sliding Information -->
 	<marquee style="background: linear-gradient(to right, #630229,#110552 ); margin-top: 50px;" direction="left" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="20">
 		<div class="marqu">“Education is the passport to the future, for tomorrow belongs to those who prepare for it today.” “Your attitude, not your aptitude, will determine your altitude.” “If you think education is expensive,
@@ -470,6 +369,8 @@ if ($conn) {
 
 </body>
 </html>
+
+
 
 
 
