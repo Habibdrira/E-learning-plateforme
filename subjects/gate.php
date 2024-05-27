@@ -5,17 +5,18 @@
         <title>Prepare for GATE on ELIteam</title>
         <link rel="stylesheet" type="text/css" href="subjects.css">
         <script type="text/javascript" src="../script.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
     </head>
 <body>
+<?php include "sub-nav.php"; ?>
 
-<!-- NAVIGATION -->
+<!-- NAVIGATION 
 	<header>
 		<div class="nav" id="nav">
 			<div id="learned-logo">
 			<a href="../index.html"><img src="../img/icon/iteam.jpg" style="width: 120px;"></a></div>
 			<div class="switch-tab" id="switch-tab" onclick="switchTAB()"><img src="../images/icon/menu.png"></div>
 			<ul id="list-switch">
-                <li><a class="icon" href="index.html">Home</a></li>
 				<li><a href="jee.html"><img src="../images/courses/d1.png" class="icon">JEE</a></li>
 				<li><a href="#"><img src="../images/courses/paper.png" class="icon">GATE</a></li>
 				<li><a href="computer_courses.html"><img src="../images/courses/computer.png" class="icon">Computer Courses</a></li>
@@ -28,7 +29,7 @@
 			</div>
 		</div>
 	</header>
-
+-->
 
 <!-- Main Title of the Page -->
 	<div class="title">
