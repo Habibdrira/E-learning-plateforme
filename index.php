@@ -203,7 +203,7 @@ if ($conn) {
 			<br>We offer you the tools and skills necessary to teach what you love.</div></h4> </center>
 			
 			<div style="border: 1px solid #000; background: linear-gradient(to right, #1e0649, #68082e);padding: 15px; display: inline-block; border-radius: 7px;">
-				<a href="former/former.php style="font-size: 22px; color: white;>
+				<a href="former/former.php" style="font-size: 22px; color: white;">
 					<span>Start teaching today.</span>
 				</a>
 			</div>
