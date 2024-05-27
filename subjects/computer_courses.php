@@ -5,29 +5,12 @@
 		<title>Computer Science Courses on ELIteam</title>
 	<link rel="stylesheet" type="text/css" href="subjects.css">
 	<script type="text/javascript" src="../script.js"></script>	
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	</head>
 <body>
 	
 <!-- NAVIGATION -->
-	<header>
-		<div class="nav" id="nav">
-			<div id="learned-logo">
-			<a href="../index.html"><img src="../img/icon/iteam.jpg" style="width: 120px;"></a></div>
-			<div class="switch-tab" id="switch-tab" onclick="switchTAB()"><img src="../images/icon/menu.png"></div>
-			<ul id="list-switch">
-				<li><a class="icon" href="index.html">Home</a></li>
-				<li><a href="jee.html"><img src="../images/courses/d1.png" class="icon">JEE</a></li>
-				<li><a href="gate.html"><img src="../images/courses/paper.png" class="icon">GATE</a></li>
-				<li><a href="#"><img src="../images/courses/computer.png" class="icon">Computer Courses</a></li>
-				<li><a href="#data"><img src="../images/courses/data.png" class="icon">Data Structures</a></li>
-				<li><a href="#algo"><img src="../images/courses/algo.png" class="icon">Algorithm</a></li>
-				<li><a href="#projects"><img src="../images/courses/projects.png" class="icon">Projects</a></li>
-			</ul>
-			<div class="search" id="search-switch">
-				<input type="search" placeholder="Search" class="srch"><button id="srchbtn"><img src="../images/icon/search.png"></button>
-			</div>
-		</div>
-	</header>
+<?php include "../subjects/sub-nav.php"; ?>
 	
 
 <!-- MAIN Heading of Page -->

@@ -149,24 +149,27 @@ if ($conn) {
 		
 	</div>
 
+
+
 <!-- Some Popular Subjects -->
 	<div class="title" id="cours">
 		<br> <br>
 		<span>Courses on ELIteam</span>
 	</div>
 	<br><br>
+
 	<div class="course">
 		<center><div class="cbox">
-		<div class="det"><a href="subjects/jee.html"><img src="img/courses/book.png">JEE Preparation</a></div>
-		<div class="det"><a href="subjects/gate.html"><img src="img/courses/d1.png">GATE Preparation</a></div>
-		<div class="det"><a href="subjects/jee.html#sample_papers"><img src="img/courses/paper.png">Sample Papers</a></div>
-		<div class="det"><a href="subjects/quiz.html"><img src="img/courses/d1.png">Daily Quiz</a></div>
+		<div class="det"><a href="subjects/jee.php"><img src="img/courses/book.png">JEE Preparation</a></div>
+		<div class="det"><a href="subjects/gate.php"><img src="img/courses/d1.png">GATE Preparation</a></div>
+		<div class="det"><a href="subjects/jee.php#sample_papers"><img src="img/courses/paper.png">Sample Papers</a></div>
+		<div class="det"><a href="subjects/quiz.php"><img src="img/courses/d1.png">Daily Quiz</a></div>
 		</div></center>
 		<div class="cbox">
-		<div class="det"><a href="subjects/computer_courses.html"><img src="img/courses/computer.png">Computer Courses</a></div>
-		<div class="det"><a href="subjects/computer_courses.html#data"><img src="img/courses/data.png">Data Structures</a></div>
-		<div class="det"><a href="subjects/computer_courses.html#algo"><img src="img/courses/algo.png">Algorithm</a></div>
-		<div class="det det-last"><a href="subjects/computer_courses.html#projects"><img src="img/courses/projects.png">Projects</a></div>
+		<div class="det"><a href="subjects/computer_courses.php"><img src="img/courses/computer.png">Computer Courses</a></div>
+		<div class="det"><a href="subjects/computer_courses.php#data"><img src="img/courses/data.png">Data Structures</a></div>
+		<div class="det"><a href="subjects/computer_courses.php#algo"><img src="img/courses/algo.png">Algorithm</a></div>
+		<div class="det det-last"><a href="subjects/computer_courses.php#projects"><img src="img/courses/projects.png">Projects</a></div>
 		</div>
 	</div>
 	<br>
@@ -191,14 +194,17 @@ if ($conn) {
 
 <br>
 
-<div class="about" id="about">
+<div class="about" id="training">
 		
 	<div class=abim>
 		<img style="width: 500px;" src="https://s.udemycdn.com/home/non-student-cta/instructor-1x-v3.jpg" srcset="https://s.udemycdn.com/home/non-student-cta/instructor-1x-v3.jpg 1x, https://s.udemycdn.com/home/non-student-cta/instructor-2x-v3.jpg 2x" alt="Devenir formateur">
 	</div>
+
 	<div class="cont">
+
 	<div class="quote">
-		<br><br><br> <br><br><br><br>
+	<center><p style="font-size: 50px; padding: 100px; padding-bottom: 40px; color:#2e2e2e;">Become a Trainer</p></center>
+		
 		<center> <h4 style="font-size: 17px;">  <br>Our instructors from around the world provide <br> courses to millions of participants on ELIteam. 
 			<br>We offer you the tools and skills necessary to teach what you love.</div></h4> </center>
 			
