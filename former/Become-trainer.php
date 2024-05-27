@@ -10,7 +10,7 @@ if (!$dbh) {
     exit;
 }
 
-$message = "";
+
 
 if (isset($_POST['Postuler'])) {
     $username = $_POST['username'];
@@ -20,39 +20,48 @@ if (isset($_POST['Postuler'])) {
     $experience = $_POST['experience'];
     $cv = $_FILES["cv"]["name"];
 
-    $check_query = "SELECT username FROM former WHERE username = ?";
-    $stmt = $dbh->prepare($check_query);
-    $stmt->bind_param('s', $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $ret = "SELECT username FROM former WHERE username=:username";
+    $query = $dbh->prepare($ret);
+    $query->bindParam(':username', $username, PDO::PARAM_STR);
+    $query->execute();
+    $results = $query->fetchAll(PDO::FETCH_OBJ);
 
-    if ($result->num_rows > 0) {
-        $message = "Ce nom d'utilisateur existe déjà. Veuillez en choisir un autre.";
-    } else {
+    if ($query->rowCount() == 0) {
         $extension = strtolower(pathinfo($cv, PATHINFO_EXTENSION));
         $allowed_extensions = array("pdf", "doc", "docx");
 
         if (!in_array($extension, $allowed_extensions)) {
-            $message = "Format de CV invalide. Seuls les formats pdf, doc et docx sont autorisés.";
+            echo "<script>alert('Invalid CV format. Only pdf / doc / docx format allowed');</script>";
         } else {
+            $is_Active=0;
             $cv = md5($cv . time()) . "." . $extension;
             move_uploaded_file($_FILES["cv"]["tmp_name"], "cvs/" . $cv);
 
-            $is_Active = 0; // Par défaut, l'utilisateur n'est pas encore actif
-
-            $sql = "INSERT INTO former (username, password, email, specialite, experience, cv, is_Active) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO former (username, password, email, specialite, experience, cv, is_Active) VALUES (:username, :password, :email, :specialite, :experience, :cv,:is_Active)";
             $query = $dbh->prepare($sql);
-            $query->bind_param('ssssssi', $username, $password, $email, $specialite, $experience, $cv, $is_Active);
-            if ($query->execute()) {
-                $message = "Les données ont été enregistrées avec succès. Attendez l'approbation de l'administrateur.";
-                header("refresh:2;url=Become-trainer.php");
+            $query->bindParam(':username', $username, PDO::PARAM_STR);
+            $query->bindParam(':password', $password, PDO::PARAM_STR);
+            $query->bindParam(':email', $email, PDO::PARAM_STR);
+            $query->bindParam(':specialite', $specialite, PDO::PARAM_STR);
+            $query->bindParam(':experience', $experience, PDO::PARAM_STR);
+            $query->bindParam(':cv', $cv, PDO::PARAM_STR);
+            $query->bindParam(':is_Active', $is_Active, PDO::PARAM_STR);
+            $query->execute();
+
+            $LastInsertId = $dbh->lastInsertId();
+            if ($LastInsertId > 0) {
+                echo '<script>alert("vous foramtion sont evnoyer au admin aatendre la confirmation .")</script>';
+                echo "<script>window.location.href ='Become-trainer.php'</script>";
             } else {
-                $message = "Erreur lors de l'enregistrement des données. Veuillez réessayer.";
+                echo '<script>alert("Something Went Wrong. Please try again")</script>';
             }
         }
+    } else {
+        echo "<script>alert('Username already exists. Please try again');</script>";
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
