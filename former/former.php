@@ -1,13 +1,16 @@
 <?php
 session_start();
-include('../DB_connection.php');
+error_reporting(0);
+include('includes/dbconnection.php');
 
-// Connexion à la base de données
-
-
-// Vérifier la connexion à la base de données
-if ($conn) {
-   
+// Vérification de la connexion à la base de données
+if (!$dbh) {
+    die("Erreur de connexion : " . mysqli_connect_error());
+    header("Location: login.php");
+	exit;
+}
+else{
+	
 // Initialiser une variable pour stocker les messages
 $message = "";
 
@@ -39,7 +42,7 @@ echo 'before iff';
     // Fermeture de la déclaration
     $stmt->close();
 }
-
+}
 ?>
 
 
@@ -51,95 +54,13 @@ echo 'before iff';
     <title>Devinez un formateur</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style-former.css">
     
 
-    <style>
-
-.bg-modal {
-	background-image:linear-gradient(to right,#1105528a,  #63022981) , url(img/extra/onl.jpg) ;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	display: none;
-	justify-content: center;
-	align-items: center;
-}
-
-.modal-contents {
-    margin-top: 30px;
-	height: 750px;
-	width: 500px;
-	background-color: white;
-	text-align: center;
-	padding: 10px;
-	position: relative;
-	border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-}
-
-input {
-	margin: 15px auto;
-	display: block;
-	width: 40%;
-	padding: 8px;
-	border: 1px solid gray;
-}
-
-.button {
-	background-color: #630229;
-	border: 2px solid white;
-	border-radius: 30px;
-	text-decoration: none;
-	padding: 10px 28px;
-	color: white;
-	margin-top: 10px;
-	display: inline-block;
-	&:hover {
-		background-color: #1105528a;
-		color: blue;
-		border: 2px solid blue;
-	}
-}
-
-
-.close {
-	position: absolute;
-	top: 0;
-	right: 10px;
-	font-size: 42px;
-	color: #333;
-	transform: rotate(45deg);
-	cursor: pointer;
-	&:hover {
-		color: #666;
-	}
-}
-.tab-pane {
-    background-color: transparent;
-}
-
-.how-it-works--text--4ET-k {
-  
-    text-align: center; 
-}
-
-.how-it-works--text--4ET-k p {
-    font-size: 22px; 
-    padding-top: 120px;
-    color: black;
-    
-}
-
-
-
-
-    </style>
 </head>
 <body>
 
-<?php include "../nav.php"; ?>
+<?php include "includes/nav-former.php"; ?>
 
 
     <div class="head-container">
@@ -305,34 +226,7 @@ Your course will be available on our platform, where you'll earn revenue for eac
 </div>
 <br><br><br><br><br>
 
-<footer>
-    <div class="footer-container">
-    <div class="left-col">
-				<img src="../logo_iteam.png" style="width: 100px;">
-				<div class="logo"></div>
-				<div class="social-media">
-					<a href="#"><img src="images/icon\fb.png"></a>
-					<a href="#"><img src="images/icon\insta.png"></a>
-					<a href="#"><img src="images/icon\tt.png"></a>
-					<a href="#"><img src="images/icon\ytube.png"></a>
-					<a href="#"><img src="images/icon\linkedin.png"></a>
-				</div><br><br>
-				<p class="rights-text">web devoloped by Zahaf Donia and Drira Habib</p>
-				<br><p><img src="images/icon/location.png"> Lovely Professional University<br>85-87 Rue Palestine 1002 Tunis</p><br>
-				<p><img src="images/icon/phone.png"> +216 22 022 444<br><img src="images/icon/mail.png">&nbsp; info@iteam-univ.tn</p>
-			</div>
-			<div class="right-col">
-				<h1 style="color: #fff">Our Newsletter</h1>
-				<div class="border"></div><br>
-				<p>Enter Your Email to get our News and updates.</p>
-				<form class="newsletter-form">
-					<input class="txtb" type="email" placeholder="Enter Your Email">
-					<input class="btn" type="submit" value="Submit">
-				</form>
-			</div>
-		</div>
-    </div>
-</footer>
+<?php include "includes/footer.php"; ?>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -353,7 +247,3 @@ document.querySelector('.close').addEventListener("click", function() {
 
 </body>
 </html>
-<?php }else {
-	header("Location: login.php");
-	exit;
-} ?>
