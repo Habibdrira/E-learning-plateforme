@@ -9,11 +9,11 @@
     </div>
     <?php
     // Vérifier si la session role est définie
-    $userId = $_SESSION['admin_id'];
+    $userId = $_SESSION['student_id'];
     // Récupérer l'identifiant de l'utilisateur
     
     // Préparer la requête pour récupérer les informations de l'utilisateur
-    $sql = "SELECT * FROM admin WHERE id_user=:userId";
+    $sql = "SELECT * FROM student WHERE id_user=:userId";
     $query = $dbh->prepare($sql);
     $query->bindParam(':userId', $userId, PDO::PARAM_STR);
     $query->execute();

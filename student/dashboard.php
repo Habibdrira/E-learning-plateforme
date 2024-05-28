@@ -5,7 +5,7 @@ include('includes/dbconnection.php');
 
 // Vérifier si l'utilisateur est connecté
 function checkLoggedIn() {
-  if (isset($_SESSION['role']) && isset($_SESSION['admin_id']) && isset($_SESSION['admin_username'])) {
+  if (isset($_SESSION['role']) && isset($_SESSION['student_id']) && isset($_SESSION['student_username'])) {
       header('Location: ../login.php');
       exit;
   }
@@ -16,6 +16,8 @@ define('TABLE_class', 'class');
 define('TABLE_STUDENT', 'student');
 define('TABLE_FORMER', 'former');
 define('TABLE_TEACHER', 'teacher');
+define('cours', 'cours');
+define('formation', 'formation');
 
 // Fonction pour récupérer le nombre total d'éléments dans une table
 function getTotalItems($table) {
@@ -38,7 +40,7 @@ checkLoggedIn();
   <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="vendors/daterangepicker/daterangepicker.css">
   <link rel="stylesheet" href="vendors/chartist/chartist.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css1/style.css">
 </head>
 <body>
   <div class="container-scroller">
@@ -60,42 +62,35 @@ checkLoggedIn();
                       </div>
                     </div>
                   </div>
+
                   <div class="row report-inner-cards-wrapper">
                     <div class="col-md-6 col-xl report-inner-card">
                       <div class="inner-card-text">
-                        <span class="report-title">Total Class</span>
-                        <h4><?php echo getTotalItems(TABLE_class);?></h4>
-                        <a href="manage-class.php"><span class="report-count"> View Classes</span></a>
+                        <span class="report-title">Total formation </span>
+                        <h4><?php echo getTotalItems(formation);?></h4>
+                        <a href="manage-class.php"><span class="report-count"> View formation </span></a>
                       </div>
                       <div class="inner-card-icon bg-success">
                         <i class="icon-rocket"></i>
                       </div>
                     </div>
+
                     <div class="col-md-6 col-xl report-inner-card">
                       <div class="inner-card-text">
-                        <span class="report-title">Total Students</span>
-                        <h4><?php echo getTotalItems(TABLE_STUDENT);?></h4>
-                        <a href="manage-students.php"><span class="report-count"> View Students</span></a>
+                        <span class="report-title">cours</span>
+                        <h4><?php echo getTotalItems(cours);?></h4>
+                        <a href="manage-students.php"><span class="report-count"> view cours</span></a>
                       </div>
                       <div class="inner-card-icon bg-danger">
                         <i class="icon-user"></i>
                       </div>
                     </div>
+
                     <div class="col-md-6 col-xl report-inner-card">
                       <div class="inner-card-text">
-                        <span class="report-title">Total Former</span>
-                        <h4><?php echo getTotalItems(TABLE_FORMER);?></h4>
-                        <a href=""><span class="report-count"> View Former</span></a>
-                      </div>
-                      <div class="inner-card-icon bg-warning">
-                        <i class="icon-doc"></i>
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-xl report-inner-card">
-                      <div class="inner-card-text">
-                        <span class="report-title">Total Teacher</span>
-                        <h4><?php echo getTotalItems(TABLE_TEACHER);?></h4>
-                        <a href=""><span class="report-count"> View Teacher</span></a>
+                      <span class="report-title">Total teacher </span>
+                      <h4><?php echo getTotalItems(TABLE_TEACHER);?></h4>
+                        <a href=""><span class="report-count"> View teacher</span></a>
                       </div>
                       <div class="inner-card-icon bg-primary">
                         <i class="icon-doc"></i>
