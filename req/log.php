@@ -17,26 +17,6 @@ function redirectToLoginWithError($error) {
 function validateFormFields($uname, $pass, $role) {
     return !empty($uname) && !empty($pass) && !empty($role);
 }
-/*
-if (empty($uname)) {
-    $em  = "Username is required";
-    header("Location: ../login.php?error=$em");
-    exit;
-}else if (empty($pass)) {
-    $em  = "Password is required";
-    header("Location: ../login.php?error=$em");
-    exit;
-}else if (empty($role)) {
-    $em  = "An error Occurred";
-    header("Location: ../login.php?error=$em");
-    exit;
-}
-
-*/
-
-
-
-
 
 
 // Récupère la table associée au rôle
@@ -48,6 +28,21 @@ function getRoleTable($role) {
         '4' => 'former'
     ];
     return $rolesTables[$role] ?? null;
+}
+
+
+
+function checkFormerStatus($conn ,$user_id,$table) {
+
+   $stmt = $conn->prepare("SELECT is_Active FROM former WHERE id_user = ?");
+    $stmt->execute([$user_id]);
+    $status = $stmt->fetchColumn();
+    
+    if ($status == 1)
+    header("Location: ../$table/dashboard.php");
+else 
+redirectToLoginWithError("Formateur not accepted");   
+
 }
 
 if (isPostRequest()) {
@@ -78,8 +73,14 @@ if (isPostRequest()) {
             $_SESSION['role'] = $table;
             $_SESSION[$table.'_id'] = $user_id;
             $_SESSION[$table.'_username'] = $$username;
+
+            if ($role == 4) {
+                checkFormerStatus($conn ,$user_id,$table) ;
+            }
+            else
             header("Location: ../$table/dashboard.php");
             exit;
+            
         } else {
             redirectToLoginWithError("Incorrect password");
         }
