@@ -11,22 +11,7 @@ function checkLoggedIn() {
   }
 }
 
-// Constantes pour les noms de table
-define('TABLE_class', 'class');
-define('TABLE_STUDENT', 'student');
-define('TABLE_FORMER', 'former');
-define('TABLE_TEACHER', 'teacher');
-define('cours', 'cours');
-define('formation', 'formation');
 
-// Fonction pour récupérer le nombre total d'éléments dans une table
-function getTotalItems($table) {
-  global $dbh;
-  $sql = "SELECT * FROM $table";
-  $query = $dbh->prepare($sql);
-  $query->execute();
-  return $query->rowCount();
-}
 
 checkLoggedIn();
 ?>
@@ -34,7 +19,7 @@ checkLoggedIn();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Admin-Dashboard</title>
+  <title>student-Dashboard</title>
   <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
   <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
   <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
@@ -66,9 +51,9 @@ checkLoggedIn();
                   <div class="row report-inner-cards-wrapper">
                     <div class="col-md-6 col-xl report-inner-card">
                       <div class="inner-card-text">
-                        <span class="report-title">Total formation </span>
-                        <h4><?php echo getTotalItems(formation);?></h4>
-                        <a href="manage-class.php"><span class="report-count"> View formation </span></a>
+                        <span class="report-title">computer_courses</span>
+                        
+                        <a href="../subjects/computer_courses.php"><span class="report-count"> View computer_courses </span></a>
                       </div>
                       <div class="inner-card-icon bg-success">
                         <i class="icon-rocket"></i>
@@ -77,9 +62,9 @@ checkLoggedIn();
 
                     <div class="col-md-6 col-xl report-inner-card">
                       <div class="inner-card-text">
-                        <span class="report-title">cours</span>
-                        <h4><?php echo getTotalItems(cours);?></h4>
-                        <a href="cours.php"><span class="report-count"> view cours</span></a>
+                        <span class="report-title">gate</span>
+                        
+                        <a href="../subjects/gate.php"><span class="report-count"> view gate</span></a>
                       </div>
                       <div class="inner-card-icon bg-danger">
                         <i class="icon-user"></i>
@@ -88,14 +73,26 @@ checkLoggedIn();
 
                     <div class="col-md-6 col-xl report-inner-card">
                       <div class="inner-card-text">
-                      <span class="report-title">Total teacher </span>
-                      <h4><?php echo getTotalItems(TABLE_TEACHER);?></h4>
-                        <a href=""><span class="report-count"> View teacher</span></a>
+                      <span class="report-title">jee </span>
+                      
+                        <a href="../subjects/jee.php"><span class="report-count"> View jee</span></a>
                       </div>
                       <div class="inner-card-icon bg-primary">
                         <i class="icon-doc"></i>
                       </div>
                     </div>
+                    <div class="col-md-6 col-xl report-inner-card">
+                      <div class="inner-card-text">
+                        <span class="report-title">quiz</span>
+                        
+                        <a href="../subjects/quiz.php"><span class="report-count"> view quiz</span></a>
+                      </div>
+                      <div class="inner-card-icon bg-danger">
+                        <i class="icon-user"></i>
+                      </div>
+                    </div>
+
+     
                   </div>
                 </div>
               </div>

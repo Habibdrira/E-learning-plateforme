@@ -1,5 +1,6 @@
 <?php 
 include "DB_connection.php";
+
 if ($conn) {
 
 ?>
@@ -18,32 +19,7 @@ if ($conn) {
 <?php include "nav.php"; ?>
 
 <?php include "ok.php"; ?>	
-			
-<!--
-	<section class="feature" id="prof">
-		
-		<div class="boxes" id="prof">
-			<img src="img/book.jpg" alt="">
-			<br>
-			<h2>+72 Total Courses</h2>
-			
-		</div>
-		<div class="boxes">
-			<img src="img/etud.png" alt="">
-			<h2>+600 Students </h2>
-			
-		</div>
-		<div class="boxes">
-			<img src="img/test.png" alt="">
-			<h2>+1k tests  </h2>
-		</div>
-	
-		<div class="boxes">
-		<img src="img/tike.png" alt="">
-		<h2>+30 total Projects</h2>
-		</div>
-	</div>
-	   </section> -->
+
 
 	   <!--invest in your goals-->
 	   <div class="service-swipe">
@@ -148,30 +124,39 @@ if ($conn) {
 		
 		
 	</div>
-
-
-
+	
 <!-- Some Popular Subjects -->
-	<div class="title" id="cours">
-		<br> <br>
-		<span>Courses on ELIteam</span>
-	</div>
-	<br><br>
+<div class="title" id="cours">
+    <br> <br>
+    <span>Courses on ELIteam</span>
+</div>
+<br><br>
 
-	<div class="course">
-		<center><div class="cbox">
-		<div class="det"><a href="subjects/jee.php"><img src="img/courses/book.png">JEE Preparation</a></div>
-		<div class="det"><a href="subjects/gate.php"><img src="img/courses/d1.png">GATE Preparation</a></div>
-		<div class="det"><a href="subjects/jee.php#sample_papers"><img src="img/courses/paper.png">Sample Papers</a></div>
-		<div class="det"><a href="subjects/quiz.php"><img src="img/courses/d1.png">Daily Quiz</a></div>
-		</div></center>
-		<div class="cbox">
-		<div class="det"><a href="subjects/computer_courses.php"><img src="img/courses/computer.png">Computer Courses</a></div>
-		<div class="det"><a href="subjects/computer_courses.php#data"><img src="img/courses/data.png">Data Structures</a></div>
-		<div class="det"><a href="subjects/computer_courses.php#algo"><img src="img/courses/algo.png">Algorithm</a></div>
-		<div class="det det-last"><a href="subjects/computer_courses.php#projects"><img src="img/courses/projects.png">Projects</a></div>
-		</div>
-	</div>
+<div class="course">
+    <center>
+        <div class="cbox">
+            <div class="det"><a href="<?php echo isset($_SESSION['role']) && $_SESSION['role'] === 'student' ? 'subjects/jee.php' : 'javascript:void(0);'; ?>" onclick="<?php echo isset($_SESSION['role']) && $_SESSION['role'] === 'student' ? '' : 'showAlert(); return false;'; ?>"><img src="img/courses/book.png">JEE Preparation</a></div>
+            <div class="det"><a href="<?php echo isset($_SESSION['role']) && $_SESSION['role'] === 'student' ? 'subjects/gate.php' : 'javascript:void(0);'; ?>" onclick="<?php echo isset($_SESSION['role']) && $_SESSION['role'] === 'student' ? '' : 'showAlert(); return false;'; ?>"><img src="img/courses/d1.png">GATE Preparation</a></div>
+            <div class="det"><a href="<?php echo isset($_SESSION['role']) && $_SESSION['role'] === 'student' ? 'subjects/jee.php#sample_papers' : 'javascript:void(0);'; ?>" onclick="<?php echo isset($_SESSION['role']) && $_SESSION['role'] === 'student' ? '' : 'showAlert(); return false;'; ?>"><img src="img/courses/paper.png">Sample Papers</a></div>
+            <div class="det"><a href="<?php echo isset($_SESSION['role']) && $_SESSION['role'] === 'student' ? 'subjects/quiz.php' : 'javascript:void(0);'; ?>" onclick="<?php echo isset($_SESSION['role']) && $_SESSION['role'] === 'student' ? '' : 'showAlert(); return false;'; ?>"><img src="img/courses/d1.png">Daily Quiz</a></div>
+        </div>
+        <div class="cbox">
+            <div class="det"><a href="<?php echo isset($_SESSION['role']) && $_SESSION['role'] === 'student' ? 'subjects/computer_courses.php' : 'javascript:void(0);'; ?>" onclick="<?php echo isset($_SESSION['role']) && $_SESSION['role'] === 'student' ? '' : 'showAlert(); return false;'; ?>"><img src="img/courses/computer.png">Computer Courses</a></div>
+            <div class="det"><a href="<?php echo isset($_SESSION['role']) && $_SESSION['role'] === 'student' ? 'subjects/computer_courses.php#data' : 'javascript:void(0);'; ?>" onclick="<?php echo isset($_SESSION['role']) && $_SESSION['role'] === 'student' ? '' : 'showAlert(); return false;'; ?>"><img src="img/courses/data.png">Data Structures</a></div>
+            <div class="det"><a href="<?php echo isset($_SESSION['role']) && $_SESSION['role'] === 'student' ? 'subjects/computer_courses.php#algo' : 'javascript:void(0);'; ?>" onclick="<?php echo isset($_SESSION['role']) && $_SESSION['role'] === 'student' ? '' : 'showAlert(); return false;'; ?>"><img src="img/courses/algo.png">Algorithm</a></div>
+            <div class="det det-last"><a href="<?php echo isset($_SESSION['role']) && $_SESSION['role'] === 'student' ? 'subjects/computer_courses.php#projects' : 'javascript:void(0);'; ?>" onclick="<?php echo isset($_SESSION['role']) && $_SESSION['role'] === 'student' ? '' : 'showAlert(); return false;'; ?>"><img src="img/courses/projects.png">Projects</a></div>
+        </div>
+    </center>
+</div>
+
+<!-- Message d'alerte pour non connecté -->
+<script>
+    function showAlert() {
+        alert("Vous devez être connecté en tant qu'étudiant pour accéder aux cours.");
+    }
+</script>
+
+
 	<br>
      
 

@@ -1,3 +1,22 @@
+<?php
+session_start();
+
+include('includes/dbconnection.php');
+
+// Vérifier si l'utilisateur est connecté
+function checkLoggedIn() {
+  if (isset($_SESSION['role']) && isset($_SESSION['student_id']) && isset($_SESSION['student_username'])) {
+      $_SESSION['error'] = "Vous devez être connecté en tant qu'étudiant pour accéder à cette page.";
+      header('Location: ../login.php');
+      exit;
+  }
+}
+
+checkLoggedIn();
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 	<head>

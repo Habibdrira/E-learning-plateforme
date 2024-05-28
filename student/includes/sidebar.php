@@ -39,7 +39,7 @@
 
 
         <li class="nav-item">
-            <a class="nav-link" href="dashboard.php">
+            <a class="nav-link" href="cours.php">
                 <span class="menu-title">cours</span>
                 <i class="icon-screen-desktop menu-icon"></i>
             </a>
@@ -47,7 +47,7 @@
    
 
             <li class="nav-item">
-            <a class="nav-link" href="dashboard.php">
+            <a class="nav-link" href="formation.php">
                 <span class="menu-title">formation</span>
                 <i class="icon-layers menu-icon"></i>
             </a>
