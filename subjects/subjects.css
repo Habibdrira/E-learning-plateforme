@@ -41,6 +41,7 @@ body {
 	top: 0px;
 	z-index: 10;
 	box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+	margin-bottom: 30px;
 }
 
 .nav li, a, button
@@ -57,7 +58,7 @@ body {
 }
 
 .nav ul li img {
-	width: 20px;
+	width: 15px;
 	margin-right: 10px;
 	transform: translateY(5px);
 	padding-top: 5px;
@@ -136,7 +137,7 @@ nav ul li a:hover {
 
 /*TITLE*/
 .title {
-	margin-top: 150px;
+	margin-top: 250px;
 	margin-left: 100px;
 }
 .title span{
