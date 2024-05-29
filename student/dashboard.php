@@ -1,120 +1,118 @@
 <?php
 session_start();
 
-// Enable error reporting
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+include('includes/dbconnection.php');
 
-include('inc/dbconnection.php');
+// Vérifier si l'utilisateur est connecté
+function checkLoggedIn() {
+  if (isset($_SESSION['role']) && isset($_SESSION['student_id']) && isset($_SESSION['student_username'])) {
+      header('Location: ../login.php');
+      exit;
+  }
+}
 
-if (isset($_SESSION['student_id']) && isset($_SESSION['role'])) {
-    if ($_SESSION['role'] == 'Student') {
-        include "../DB_connection.php";
-        include "data/student.php";
-        include "data/subject.php";
-        include "data/grade.php";
-        include "data/section.php";
+// Constantes pour les noms de table
+define('TABLE_class', 'class');
+define('TABLE_STUDENT', 'student');
+define('TABLE_FORMER', 'former');
+define('TABLE_TEACHER', 'teacher');
+define('cours', 'cours');
+define('formation', 'formation');
 
-        $student_id = $_SESSION['student_id'];
-        $student = getStudentById($student_id, $conn);
+// Fonction pour récupérer le nombre total d'éléments dans une table
+function getTotalItems($table) {
+  global $dbh;
+  $sql = "SELECT * FROM $table";
+  $query = $dbh->prepare($sql);
+  $query->execute();
+  return $query->rowCount();
+}
 
-        // Debugging: Check if student data is retrieved
-        if (!$student) {
-            die("Error: Student data not found.");
-        } else {
-            ?>
+checkLoggedIn();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student - Home</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="../logo.png">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Admin-Dashboard</title>
+  <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="vendors/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="vendors/chartist/chartist.min.css">
+  <link rel="stylesheet" href="css1/style.css">
 </head>
 <body>
-    <?php include "inc/navbar.php"; ?>
-    <div class="container mt-5">
-        <div class="card" style="width: 22rem;">
-            <img src="../img/student-<?=$student['Gender']?>.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title text-center">@<?=$student['username']?></h5>
+  <div class="container-scroller">
+    <?php include_once('includes/header.php');?>
+    <div class="container-fluid page-body-wrapper">
+      <?php include_once('includes/sidebar.php');?>
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="d-sm-flex align-items-baseline report-summary-header">
+                        <h5 class="font-weight-semibold">Report Summary</h5> 
+                        <span class="ml-auto">Updated Report</span> 
+                        <button class="btn btn-icons border-0 p-2"><i class="icon-refresh"></i></button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row report-inner-cards-wrapper">
+                    <div class="col-md-6 col-xl report-inner-card">
+                      <div class="inner-card-text">
+                        <span class="report-title">Total formation </span>
+                        <h4><?php echo getTotalItems(formation);?></h4>
+                        <a href="manage-class.php"><span class="report-count"> View formation </span></a>
+                      </div>
+                      <div class="inner-card-icon bg-success">
+                        <i class="icon-rocket"></i>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 col-xl report-inner-card">
+                      <div class="inner-card-text">
+                        <span class="report-title">cours</span>
+                        <h4><?php echo getTotalItems(cours);?></h4>
+                        <a href="cours.php"><span class="report-count"> view cours</span></a>
+                      </div>
+                      <div class="inner-card-icon bg-danger">
+                        <i class="icon-user"></i>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 col-xl report-inner-card">
+                      <div class="inner-card-text">
+                      <span class="report-title">Total teacher </span>
+                      <h4><?php echo getTotalItems(TABLE_TEACHER);?></h4>
+                        <a href=""><span class="report-count"> View teacher</span></a>
+                      </div>
+                      <div class="inner-card-icon bg-primary">
+                        <i class="icon-doc"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Student Name: <?=$student['Student Name']?></li>
-                <li class="list-group-item">Username: <?=$student['username']?></li>
-                <li class="list-group-item">Email: <?=$student['email']?></li>
-                <li class="list-group-item">Class: <?=$student['classe']?></li>
-                <li class="list-group-item">Date of Birth: <?=$student['Date of Birth']?></li>
-                <li class="list-group-item">Gender: <?=$student['Gender']?></li>
-                <li class="list-group-item">Grade: 
-                    <?php 
-                        $grade = $student['classe'];
-                        $g = getGradeById($grade, $conn);
-                        echo $g ? $g['grade_code'].'-'.$g['grade'] : 'Grade not found';
-                    ?>
-                </li>
-                <li class="list-group-item">Section: 
-                    <?php 
-                        $section = $student['classe'];  // Assuming `classe` represents section here
-                        $s = getSectionById($section, $conn);
-                        echo $s ? $s['section'] : 'Section not found';
-                    ?>
-                </li>
-            </ul>
+          </div>
         </div>
+        <?php include_once('includes/footer.php');?>
+      </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>    
-    <script>
-        $(document).ready(function(){
-            $("#navLinks li:nth-child(1) a").addClass('active');
-        });
-    </script>
+  </div>
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <script src="vendors/chart.js/Chart.min.js"></script>
+  <script src="vendors/moment/moment.min.js"></script>
+  <script src="vendors/daterangepicker/daterangepicker.js"></script>
+  <script src="vendors/chartist/chartist.min.js"></script>
+  <script src="js/off-canvas.js"></script>
+  <script src="js/misc.js"></script>
+  <script src="js/dashboard.js"></script>
 </body>
 </html>
-
-<?php
-        }
-    }
-} else {
-    header("Location: login.php");
-    exit();
-}
-?>
-
-<?php
-// data/student.php
-
-function getStudentById($id, $conn) {
-    $sql = "SELECT * FROM student WHERE id_user = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    return $result->fetch_assoc();
-}
-
-// Assuming the existence of similar functions for grade and section retrieval
-function getGradeById($id, $conn) {
-    $sql = "SELECT * FROM grade WHERE id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    return $result->fetch_assoc();
-}
-
-function getSectionById($id, $conn) {
-    $sql = "SELECT * FROM section WHERE id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    return $result->fetch_assoc();
-}
-?>
