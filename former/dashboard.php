@@ -1,13 +1,6 @@
 <?php
 session_start();
 
-include('includes/dbconnection.php');
-if (isset($_SESSION['role']) && isset($_SESSION['former_id']) ) {
-  header('Location: ../login.php');
-  exit;
-
-}else {}
-
 
 //checkLoggedIn();
 ?>
