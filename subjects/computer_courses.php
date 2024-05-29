@@ -32,7 +32,7 @@ checkLoggedIn();
 	
 
 <!-- MAIN Heading of Page -->
-	<div class="title">
+	<div class="title" style="margin-top: 150px;">
 		<span>Computer Science Courses<br>on LearnEd</span>
 		<div class="shortdesc">
 			<p>Learn programming languages and concepts to prepare for a career in<br>hardware or software development</p>

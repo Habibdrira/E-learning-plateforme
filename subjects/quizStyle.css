@@ -21,7 +21,11 @@ body {
   width: 5px;
 }
 ::-webkit-scrollbar-thumb {
+<<<<<<< HEAD
   background: #fa4b37;
+=======
+  background: #8a0123;
+>>>>>>> a811e256fb83825efc51d53a073d7d7982378141
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {

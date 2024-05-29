@@ -27,31 +27,13 @@ checkLoggedIn();
 		<link rel="stylesheet" type="text/css" href="../css/style.css">
     </head>
 <body>
+
+
 <?php include "sub-nav.php"; ?>
 
-<!-- NAVIGATION 
-	<header>
-		<div class="nav" id="nav">
-			<div id="learned-logo">
-			<a href="../index.html"><img src="../img/icon/iteam.jpg" style="width: 120px;"></a></div>
-			<div class="switch-tab" id="switch-tab" onclick="switchTAB()"><img src="../images/icon/menu.png"></div>
-			<ul id="list-switch">
-				<li><a href="jee.html"><img src="../images/courses/d1.png" class="icon">JEE</a></li>
-				<li><a href="#"><img src="../images/courses/paper.png" class="icon">GATE</a></li>
-				<li><a href="computer_courses.html"><img src="../images/courses/computer.png" class="icon">Computer Courses</a></li>
-				<li><a href="computer_courses.html#data"><img src="../images/courses/data.png" class="icon">Data Structures</a></li>
-				<li><a href="computer_courses.html#algo"><img src="../images/courses/algo.png" class="icon">Algorithm</a></li>
-				<li><a href="computer_courses.html#projects"><img src="../images/courses/projects.png" class="icon">Projects</a></li>
-			</ul>
-			<div class="search" id="search-switch">
-				<input type="text" placeholder="Search" class="srch"><button id="srchbtn"><img src="../images/icon/search.png"></button>
-			</div>
-		</div>
-	</header>
--->
 
 <!-- Main Title of the Page -->
-	<div class="title">
+	<div class="title" style="margin-top: 150px;">
 		<span>Prepare for GATE Exams on LearnEd</span>
 		<div class="shortdesc">
 			<p>Learn from LearnEd for better higher studies in<br> Indian Institutes of Technologies(IIT)</p>

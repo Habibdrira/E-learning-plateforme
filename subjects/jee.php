@@ -31,7 +31,7 @@ checkLoggedIn();
 <?php include "sub-nav.php"; ?>
 	<!-- NAVIGATION -->
 	<?php include "../subjects/sub-nav.php"; ?>
-	<div class="title">
+	<div class="title" style="margin-top: 150px;">
 		<span>Prepare for JEE Mains & Advanced<br>on LearnEd</span>
 		<div class="shortdesc">
 			<p>Learn your basic concepts to prepare for a career in<br>Engineering and Medical fields</p>

@@ -73,17 +73,13 @@ if (!$dbh) {
 </div>
 <br><br>
 
-<<<<<<< HEAD
 
 
-<div class="ud-container teach-page__container how-it-works--container--SBlfF" id="start">
-    <center><h1 style="font-size: 45px;color: #2e2e2e;" class="ud-heading-serif-xl teach-page__heading teach-page__margin-center how-it-works--title--H--hd">How to get started</h1></center>
-=======
 <div class="ud-container teach-page__container how-it-works--container--SBlfF">
     <center>
         <h1 style="font-size: 45px;color: #2e2e2e;" class="ud-heading-serif-xl teach-page__heading teach-page__margin-center how-it-works--title--H--hd">How to get started</h1>
     </center>
->>>>>>> 19dba6d32451f77f632fdd68b0ad710469bf6fe3
+
     <div class="tabs-module--tabs-container---clC6 tabs-module--full-width--63jhA">
         <div class="container">
             <br>
